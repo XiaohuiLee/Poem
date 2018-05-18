@@ -25,7 +25,7 @@ def patternSearch(line):
 
 #%%
 poem = open('yaunqu_notitle.txt', 'r', encoding = 'utf-8-sig' )
-collection = open('name2chose_yuanqu.txt','a+', encoding = 'utf-8-sig' )
+collection = open('name2choose_yuanqu.txt','a+', encoding = 'utf-8-sig' )
 line = poem.readline()
 while line:
     if re.match(skipPattern, line) == None:
