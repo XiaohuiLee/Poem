@@ -21,13 +21,13 @@ rubbishPattern = re.compile(r"<.*?>")
 for sp in span:
     son = sp.find('a')
     f.write(clean(son.text))
-    poetUrl = son['href']
+    poemUrl = son['href']
     sess = requests.session()
-    content = sess.get(poetUrl).text
-    poetSoup = BeautifulSoup(content, 'html5lib')
-    poet = poetSoup.find('div', attrs={"class" : 'contson'}).get_text()
-    poet_ = re.sub(rubbishPattern,'', poet)
-    # print(poet_)
-    f.write(clean(poet_))
+    content = sess.get(poemUrl).text
+    poemSoup = BeautifulSoup(content, 'html5lib')
+    poem = poemSoup.find('div', attrs={"class" : 'contson'}).get_text()
+    poem_ = re.sub(rubbishPattern,'', poem)
+    # print(poem_)
+    f.write(clean(poem_))
     f.write('\n')
 f.close()

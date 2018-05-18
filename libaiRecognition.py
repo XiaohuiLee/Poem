@@ -27,15 +27,15 @@ def patternSearch(line):
 
 
 #%%
-poet = open('libai.txt', 'r', encoding = 'utf-8-sig' )
+poem = open('libai.txt', 'r', encoding = 'utf-8-sig' )
 collection = open('name2chose_libai.txt','a+', encoding = 'utf-8-sig' )
-line = poet.readline()
+line = poem.readline()
 while line:
     if re.match(skipPattern, line) == None:
         patternSearch(line)
-    line = poet.readline()
+    line = poem.readline()
 collection.close()
-poet.close()
+poem.close()
 
 
 

@@ -25,23 +25,23 @@ def getPage(url):
 
 
 #%%
-def getPoet(soup):
+def getpoem(soup):
     title = soup.find_all('h3')
     for ti in title:
         f.write(clean(ti.a.text))
         href = ti.find('a')['href']
-        poetURL = prefix + href
+        poemURL = prefix + href
         sess = requests.Session()
-        poetContent = sess.get(poetURL).content
-        poetSoup = BeautifulSoup(poetContent, 'html5lib')
-        poet = poetSoup.find('div', attrs={'class':'shici-content'})
-        f.write(clean(poet.text))
+        poemContent = sess.get(poemURL).content
+        poemSoup = BeautifulSoup(poemContent, 'html5lib')
+        poem = poemSoup.find('div', attrs={'class':'shici-content'})
+        f.write(clean(poem.text))
 
 
 #%%
 def scrapper(url):
     soup = getPage(url)
-    getPoet(soup)
+    getpoem(soup)
 
 
 
