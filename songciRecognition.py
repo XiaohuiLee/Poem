@@ -12,23 +12,20 @@ muDict = re.compile(re.sub(dictPattern, '|',diction))
 print(muDict)
 
 
-
-
 #%% 
 def patternSearch(line):
     single = re.split(splitPattern, line)
     for si in single:
         if re.search(muDict, si):
             print(si)
-            collection.writelines(si)
+            collection.writelines(si.replace(' ', ''))
             collection.write('\n')
         else:
             pass
 
-
 #%%
-poet = open('libai.txt', 'r', encoding = 'utf-8-sig' )
-collection = open('name2choose.txt','w', encoding = 'utf-8-sig' )
+poet = open('songci.txt', 'r', encoding = 'utf-8-sig' )
+collection = open('name2chose_songci.txt','a+', encoding = 'utf-8-sig' )
 line = poet.readline()
 while line:
     if re.match(skipPattern, line) == None:

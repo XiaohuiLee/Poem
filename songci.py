@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import re
 
 #%%
-url = 'https://www.gushiwen.org/gushi/yuanqu.aspx'
+url = 'https://www.gushiwen.org/gushi/songci.aspx'
 response = requests.get(url)
 content = response.text
 soup = BeautifulSoup(content, 'html5lib')
@@ -16,7 +16,7 @@ def clean(text):
 
 #%%
 span = soup.find_all('span')
-f = open('yaunqu.txt', 'w', encoding='utf-8-sig')
+f = open('songci.txt', 'w', encoding='utf-8-sig')
 rubbishPattern = re.compile(r"<.*?>")
 for sp in span:
     son = sp.find('a')
